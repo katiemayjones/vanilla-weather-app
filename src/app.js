@@ -24,7 +24,6 @@ function citySearch(event) {
   event.preventDefault();
   let query = document.querySelector("#search-city-input");
   let cityName = document.querySelector(".cityName");
-  let iconElement = document.querySelector("#main-icon");
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query.value}&key=e70e93a38oe24fbbd3ata4d913b05868&units=metric`;
 
   cityName.innerHTML = `${query.value}`;
@@ -39,6 +38,9 @@ function showTemperature(response) {
   let cityName = document.querySelector(".cityName");
   let nameChange = response.data.city;
   let iconElement = document.querySelector("#main-icon");
+  let weatherCurrently = document.querySelector(".weatherCurrently");
+
+  weatherCurrently.innerHTML = `${response.data.condition.description}`;
 
   cityName.innerHTML = `${nameChange}`;
   temperature.innerHTML = `${temperatureElementC}`;
@@ -63,7 +65,11 @@ function getPosition(position) {
     let nameChange = response.data.city;
     let iconElement = document.querySelector("#main-icon");
     let weatherCurrently = document.querySelector(".weatherCurrently");
+    let humidity = document.querySelector("#current-humidity");
+    let windspeed = document.querySelector("#current-wind");
 
+    windspeed.innerHTML = Math.round(`${response.data.wind.speed}`);
+    humidity.innerHTML = Math.round(`${response.data.temperature.humidity}`);
     weatherCurrently.innerHTML = `${response.data.condition.description}`;
     cityName.innerHTML = `${nameChange}`;
     temperature.innerHTML = `${temperatureElementC}`;
