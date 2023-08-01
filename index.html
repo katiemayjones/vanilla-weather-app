@@ -32,6 +32,58 @@
       referrerpolicy="no-referrer"
     ></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-1">
+          <h1 class="cityName">City name</h1>
+        </div>
+        <div class="col-2">
+          <h2 class="currentTemp">
+            18 <a href="#" id="celcius-link">°C</a> |
+            <a href="#" id="faren-link"> °F</a>
+          </h2>
+        </div>
+        <div class="col-3">
+          <h3 class="dateTime">Tuesday <br />11:10</h3>
+          <h3 class="currentCondition">
+            Precipitation: 38%<br />Humidity: 79%<br />Wind: 10mph
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3 class="day1">Mon</h3>
+        </div>
+        <div class="col">
+          <h3 class="day2">Tues</h3>
+        </div>
+        <div class="col">
+          <h3 class="day3">Wed</h3>
+        </div>
+        <div class="col">
+          <h3 class="day4">Thurs</h3>
+        </div>
+        <div class="col">
+          <h3 class="day5">Fri</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <form id="city-search">
+            <input
+              type="text"
+              placeholder="Enter a new city"
+              autocomplete="off"
+              autofocus="on"
+              id="search-city-input"
+            />
+          </form>
+          <button class="searchButton">Search</button>
+        </div>
+      </div>
+      <footer>Coded by Katiemay 👩🏼‍💻</footer>
+    </div>
+  </body>
   <script src="src/app.js"></script>
 </html>
