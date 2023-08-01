@@ -31,8 +31,6 @@ function citySearch(event) {
 }
 
 function showTemperature(response) {
-  console.log(response);
-
   let temperature = document.querySelector("#currentTempC");
   let cityName = document.querySelector(".cityName");
   let nameChange = response.data.city;

@@ -4,6 +4,7 @@ body {
 .container {
   font-family: "Cutive Mono", monospace;
   color: #3b3b3d;
+  background-image: url("");
   text-align: center;
   padding: 10px;
   margin: 10px;
