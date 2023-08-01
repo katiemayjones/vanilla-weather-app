@@ -30,6 +30,8 @@ function citySearch(event) {
 }
 
 function showTemperature(response) {
+  console.log(response);
+
   let temperature = document.querySelector("#currentTempC");
   let temperatureElementC = Math.round(response.data.temperature.current);
   let cityName = document.querySelector(".cityName");
@@ -43,3 +45,20 @@ formInput.addEventListener("submit", citySearch);
 
 let searchButton = document.querySelector(".searchButton");
 searchButton.addEventListener("click", citySearch);
+
+function getPosition(position) {
+  console.log(position);
+  let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+  let locationApiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=e70e93a38oe24fbbd3ata4d913b05868&units=metric`;
+  axios.get(locationApiUrl).then((response) => {
+    let temperature = document.querySelector("#currentTempC");
+    let temperatureElementC = Math.round(response.data.temperature.current);
+    let cityName = document.querySelector(".cityName");
+    let nameChange = response.data.city;
+    cityName.innerHTML = `${nameChange}`;
+    temperature.innerHTML = `${temperatureElementC}`;
+  });
+}
+
+navigator.geolocation.getCurrentPosition(getPosition);
