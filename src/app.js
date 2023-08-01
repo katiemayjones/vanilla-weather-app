@@ -62,7 +62,9 @@ function getPosition(position) {
     let cityName = document.querySelector(".cityName");
     let nameChange = response.data.city;
     let iconElement = document.querySelector("#main-icon");
+    let weatherCurrently = document.querySelector(".weatherCurrently");
 
+    weatherCurrently.innerHTML = `${response.data.condition.description}`;
     cityName.innerHTML = `${nameChange}`;
     temperature.innerHTML = `${temperatureElementC}`;
     iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
