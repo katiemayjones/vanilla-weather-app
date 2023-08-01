@@ -12,11 +12,11 @@ body {
   position: relative;
   overflow: hidden;
   width: 600px;
-  height: 300px;
+  height: 340px;
 }
 
 .cityName {
-  font-size: 44px;
+  font-size: 36px;
 }
 
 .currentTemp {
@@ -25,7 +25,23 @@ body {
 
 h3 {
   text-align: right;
-  line-height: 50px;
+}
+
+.day1 {
+  font-size: 16px;
+}
+.day2 {
+  font-size: 16px;
+}
+.day3 {
+  font-size: 16px;
+}
+
+.day4 {
+  font-size: 16px;
+}
+.day5 {
+  font-size: 16px;
 }
 
 .dateTime {

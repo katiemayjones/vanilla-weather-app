@@ -24,8 +24,10 @@ function citySearch(event) {
   event.preventDefault();
   let query = document.querySelector("#search-city-input");
   let cityName = document.querySelector(".cityName");
-  cityName.innerHTML = `${query.value}`;
+  let iconElement = document.querySelector("#main-icon");
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query.value}&key=e70e93a38oe24fbbd3ata4d913b05868&units=metric`;
+
+  cityName.innerHTML = `${query.value}`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -36,8 +38,11 @@ function showTemperature(response) {
   let temperatureElementC = Math.round(response.data.temperature.current);
   let cityName = document.querySelector(".cityName");
   let nameChange = response.data.city;
+  let iconElement = document.querySelector("#main-icon");
+
   cityName.innerHTML = `${nameChange}`;
   temperature.innerHTML = `${temperatureElementC}`;
+  iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
 }
 
 let formInput = document.querySelector("#search-city-input");
@@ -56,8 +61,11 @@ function getPosition(position) {
     let temperatureElementC = Math.round(response.data.temperature.current);
     let cityName = document.querySelector(".cityName");
     let nameChange = response.data.city;
+    let iconElement = document.querySelector("#main-icon");
+
     cityName.innerHTML = `${nameChange}`;
     temperature.innerHTML = `${temperatureElementC}`;
+    iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
   });
 }
 
