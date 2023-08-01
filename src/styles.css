@@ -1,0 +1,44 @@
+body {
+  max-width: 600px;
+}
+.container {
+  font-family: "Cutive Mono", monospace;
+  color: #3b3b3d;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: #949597 1px solid;
+  position: relative;
+  overflow: hidden;
+  width: 600px;
+  height: 360px;
+}
+
+.cityName {
+  font-size: 44px;
+}
+
+.currentTemp {
+  font-size: 32px;
+}
+
+.dateTime {
+  font-size: 16px;
+  text-align: right;
+}
+
+.currentCondition {
+  font-size: 12px;
+  text-align: right;
+}
+
+.searchCity {
+  padding: 10px;
+  margin: 50px 10px 10px 10px;
+  display: inline-block;
+}
+
+h3 {
+  padding: 10px;
+}
