@@ -31,6 +31,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -38,7 +39,8 @@
         <div class="col">
           <h1 class="cityName">City name</h1>
           <h2 class="currentTemp">
-            18 <a href="#" id="celcius-link">°C</a> |
+            <span id="currentTempC"> 18</span>
+            <a href="#" id="celcius-link">°C</a> |
             <a href="#" id="faren-link"> °F</a>
           </h2>
         </div>
@@ -85,7 +87,8 @@
           <button class="searchButton">Search</button>
         </div>
         <footer>
-          Coded by <a href="https://github.com/katiemayjones/">Katiemay 👩🏼‍💻</a>
+          Open source code by
+          <a href="https://github.com/katiemayjones/">Katiemay 👩🏼‍💻</a>
         </footer>
       </div>
     </div>
