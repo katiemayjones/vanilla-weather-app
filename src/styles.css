@@ -25,6 +25,12 @@ body {
 
 .currentTemp {
   font-size: 24px;
+  color: #144054;
+}
+
+.currentTemp .active {
+  color: #3b3b3d;
+  cursor: default;
 }
 
 h3 {
@@ -72,6 +78,7 @@ footer {
   padding: 15px;
   font-size: 10px;
 }
+
 a:link,
 a:visited,
 a:hover,

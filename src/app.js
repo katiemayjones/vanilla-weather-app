@@ -34,16 +34,20 @@ function showTemperature(response) {
   console.log(response);
 
   let temperature = document.querySelector("#currentTempC");
-  let temperatureElementC = Math.round(response.data.temperature.current);
   let cityName = document.querySelector(".cityName");
   let nameChange = response.data.city;
   let iconElement = document.querySelector("#main-icon");
   let weatherCurrently = document.querySelector(".weatherCurrently");
+  let humidity = document.querySelector("#current-humidity");
+  let windspeed = document.querySelector("#current-wind");
 
+  celciusTemperature = response.data.temperature.current;
+
+  windspeed.innerHTML = Math.round(`${response.data.wind.speed}`);
+  humidity.innerHTML = Math.round(`${response.data.temperature.humidity}`);
   weatherCurrently.innerHTML = `${response.data.condition.description}`;
-
   cityName.innerHTML = `${nameChange}`;
-  temperature.innerHTML = `${temperatureElementC}`;
+  temperature.innerHTML = Math.round(celciusTemperature);
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
 }
 
@@ -60,21 +64,46 @@ function getPosition(position) {
   let locationApiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=e70e93a38oe24fbbd3ata4d913b05868&units=metric`;
   axios.get(locationApiUrl).then((response) => {
     let temperature = document.querySelector("#currentTempC");
-    let temperatureElementC = Math.round(response.data.temperature.current);
     let cityName = document.querySelector(".cityName");
     let nameChange = response.data.city;
     let iconElement = document.querySelector("#main-icon");
     let weatherCurrently = document.querySelector(".weatherCurrently");
     let humidity = document.querySelector("#current-humidity");
     let windspeed = document.querySelector("#current-wind");
+    celciusTemperature = response.data.temperature.current;
 
     windspeed.innerHTML = Math.round(`${response.data.wind.speed}`);
     humidity.innerHTML = Math.round(`${response.data.temperature.humidity}`);
     weatherCurrently.innerHTML = `${response.data.condition.description}`;
     cityName.innerHTML = `${nameChange}`;
-    temperature.innerHTML = `${temperatureElementC}`;
+    temperature.innerHTML = Math.round(celciusTemperature);
     iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
   });
 }
 
 navigator.geolocation.getCurrentPosition(getPosition);
+
+function showFahren(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#currentTempC");
+  celciusLink.classList.remove("active");
+  fahrenLink.classList.add("active");
+  let fahrenTemperature = (celciusTemperature * 9) / 5 + 32;
+
+  currentTemp.innerHTML = Math.round(fahrenTemperature);
+}
+
+function showCelcius(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#currentTempC");
+  celciusLink.classList.add("active");
+  fahrenLink.classList.remove("active");
+  currentTemp.innerHTML = Math.round(celciusTemperature);
+}
+let celciusTemperature = null;
+
+let fahrenLink = document.querySelector("#fahren-link");
+let celciusLink = document.querySelector("#celcius-link");
+
+celciusLink.addEventListener("click", showCelcius);
+fahrenLink.addEventListener("click", showFahren);
