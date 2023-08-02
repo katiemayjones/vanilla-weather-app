@@ -78,7 +78,11 @@ function showTemperature(response) {
 }
 
 let formInput = document.querySelector("#search-city-input");
-formInput.addEventListener("submit", citySearch);
+formInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  }
+});
 
 let searchButton = document.querySelector(".searchButton");
 searchButton.addEventListener("click", citySearch);
