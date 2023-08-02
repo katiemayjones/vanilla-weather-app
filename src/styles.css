@@ -13,7 +13,7 @@ body {
   position: relative;
   overflow: hidden;
   width: 600px;
-  height: 340px;
+  height: fit-content;
 }
 .weatherCurrently {
   font-size: 14px;
@@ -37,22 +37,25 @@ body {
 h3 {
   text-align: right;
 }
+.weatherForecast {
+  margin-top: 20px;
+}
 
 .day1 {
-  font-size: 16px;
+  font-size: 14px;
 }
 .day2 {
-  font-size: 16px;
+  font-size: 14px;
 }
 .day3 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .day4 {
-  font-size: 16px;
+  font-size: 14px;
 }
 .day5 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .dateTime {
