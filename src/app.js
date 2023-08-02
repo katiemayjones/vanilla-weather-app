@@ -20,6 +20,32 @@ let currentDay = days[now.getDay()];
 currently.innerHTML = `${currentDay}<br/>
 ${currentHours}:${currentMinutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2"> 
+          <div class="weatherForecast" id="forecast">
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              width="48"
+            />
+            <h4 class="forecastDay">
+              ${day} <br /><span id="maxForecast">12</span>°
+              <span id="minForecast">12</span>°
+            </h4>
+        </div>
+      </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function citySearch(event) {
   event.preventDefault();
   let query = document.querySelector("#search-city-input");
@@ -29,6 +55,8 @@ function citySearch(event) {
   cityName.innerHTML = `${query.value}`;
   axios.get(apiUrl).then(showTemperature);
 }
+
+displayForecast();
 
 function showTemperature(response) {
   let temperature = document.querySelector("#currentTempC");

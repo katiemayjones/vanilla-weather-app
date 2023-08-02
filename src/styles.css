@@ -53,26 +53,16 @@ h3 {
 .currentCondition {
   font-size: 12px;
   text-align: right;
-  color: #144054;
 }
 .weatherForecast {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-.day1 {
-  font-size: 14px;
-}
-.day2 {
-  font-size: 14px;
-}
-.day3 {
-  font-size: 14px;
+#minForecast {
+  opacity: 0.6;
 }
 
-.day4 {
-  font-size: 14px;
-}
-.day5 {
+.forecastDay {
   font-size: 14px;
 }
 
